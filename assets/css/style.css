@@ -37,9 +37,16 @@ h2 {
     text-align: center;
     margin-left: 50px;
 }
+
+.iBox {
+    visibility: hidden;
+}
 /* #question{
     list-style-image: url('/assets/Images/coffeeCup.jpg');
 } */
 .options:hover {
     border: 2px solid rgb(206, 59, 59);
+}
+#end {
+    visibility: hidden;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Movie Trivia Game</title>
+    <title>F.R.I.E.N.D.S Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/resets.css" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
@@ -12,27 +12,29 @@
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
-</head>
-
-<body>
     <audio id="timeOut">
-        <source src="assets/Sounds/stupid.mp3" type="audio/mp3">
+        <source src="assets/Sounds/tricky.mp3" type="audio/mp3">
     </audio>
     <audio id="wrong1">
-        <source src="assets/Sounds/how_dumb.mp3" type="audio/mp3">
+        <source src="assets/Sounds/ohnonono.mp3" type="audio/mp3">
     </audio>
     <audio id="correct1">
         <source src="assets/Sounds/so_party.mp3" type="audio/mp3">
     </audio>
-    <audio>
+    <audio id="correct2">
+        <source src="assets/Sounds/stud.mp3" type="audio/mp3">
+    </audio>
+    <audio id="wrong2">
         <source src="assets/Sounds/stupid.mp3" type="audio/mp3">
     </audio>
-    <audio>
-        <source src="assets/Sounds/stupid.mp3" type="audio/mp3">
+    <audio id="wrong3">
+        <source src="assets/Sounds/suckbfre.mp3" type="audio/mp3">
     </audio>
-    <audio></audio>
-    <audio></audio>
-    <audio></audio>
+
+</head>
+
+<body>
+
 
     <div class="container">
         <div class="row">
@@ -76,10 +78,21 @@
 
 
         </div>
-        <div class="iBox" class="col-md-6">
 
+        <div class="row">
+            <div class="iBox" class="col-md-6">
+                <h2 id="correct">Correct:
+                    <span>0</span>
+                </h2>
+                <h2 id="wrong">Incorrect:
+                    <span>0</span>
+                </h2>
+
+            </div>
+            <div class="col">
+                <img id="end" src="https://media.giphy.com/media/aeBbNgeewwtZ6/giphy.gif" />
+            </div>
         </div>
-
 
 
 

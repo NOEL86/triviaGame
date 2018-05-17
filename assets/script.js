@@ -14,8 +14,8 @@ var correct = 0;
 var incorrect = 0;
 
 var usersChoice;
-var wrongAnswer1 = $("#wrong1");
-var correctAnswer1 = $("#correct1");
+// var wrongAnswer1 = $("#wrong1");
+// var correctAnswer1 = $("#correct1");
 var timeOut = $("#timeOut");
 var currentIndex = 0;
 var timerId;
@@ -102,9 +102,8 @@ function countdown() {
 
     if (timeLeft == 0) {
         clearTimeout(timerId);
-        alert("Sorry Time's Up!")
+        $('audio#timeOut')[0].play();
         $(".qBox").hide();
-        $(".iBox").prepend("<img style='https://media.giphy.com/media/o2dyz0l0BWisM/giphy.gif'/>");
         //setimout for 3secconds
         timeLeft = 10
         timeOutId = setTimeout(function () {
@@ -126,6 +125,7 @@ function countdown() {
 
 }
 
+// for ()
 //var for keeping track of what index we are at in the questionArray
 
 // first question appears 
@@ -151,6 +151,8 @@ $(".options").on("click", function (event) {
     for (var i = 0; i < questionArray[currentIndex].options.length; i++) {
     } if (usersChoice == questionArray[currentIndex].answer) {
         console.log(usersChoice);
+        $('audio#correct2')[0].play();
+        ++correct
         alert("Correct");
         clearTimeout(timerId);
         timeOutId = setTimeout(function () {
@@ -163,10 +165,11 @@ $(".options").on("click", function (event) {
             timerId = setInterval(countdown, 1000);
         }, 3000)
 
-        // $("#correct1").play()
+
     } else {
         console.log(usersChoice);
-        alert("Sorry Nope")
+        ++incorrect
+        $('audio#wrong1')[0].play();
         clearTimeout(timerId);
         timeOutId = setTimeout(function () {
             timeLeft = 10
@@ -197,6 +200,16 @@ function generateQuestion() {
     $(".qBox").show();
 
 }
+
+if (questionArray[currentIndex].question.length == 10 && clearTimeout == true) {
+    $(".qBox").empty();
+    $(".iBox").show();
+    $("#correct").text(correct);
+    $("#wrong").text(incorrect);
+    $("#end").style.visible = "visible";
+
+}
+// if (questionArray[currentIndex].question)
 
 //4 Options are selectable on the screen
 //A select box appears over the item that is scrolled over
