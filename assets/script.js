@@ -12,10 +12,15 @@ var movieTrivia = {
 
 var correct = 0;
 var incorrect = 0;
-var questionArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 
-
-
+var usersChoice;
+var wrongAnswer1 = $("#wrong1");
+var correctAnswer1 = $("#correct1");
+var timeOut = $("#timeOut");
+var currentIndex = 0;
+var timerId;
+var timeOutId;
+var answer = [];
 
 var q1 = {
     question: 'What is Chandlers middle name?',
@@ -81,6 +86,7 @@ var q10 = {
     answer: 'Monica and Chandler buy a house and move out'
 };
 
+var questionArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 
 $("#button").on("click", function () {
     $("#button").hide();
@@ -89,52 +95,106 @@ $("#button").on("click", function () {
     countdown();
 
 
-    var timerId = setInterval(countdown,
-        1000);
-    function countdown() {
-
-        if (timeLeft == 0) {
-            clearTimeout(timerId);
-            alert("Sorry Time's Up!")
-            $(".container").hide();
-            $(".container").prepend("<img src= 'assets/loseimage.png'/>");
-        } else {
-            secondsLeft = $("#time");
-            timeLeft--;
-            $("#time").text(timeLeft);
-            console.log(timeLeft);
-
-        }
-        // function restart() {
-        //     timeLeft = setInterval(countdown.secondsLeft, 1000);
-        // }
-        // function stop() {
-        //     clearInterval(timerId);
-        // }
-
-    }
+    timerId = setInterval(countdown, 1000);
 })
 
+function countdown() {
 
+    if (timeLeft == 0) {
+        clearTimeout(timerId);
+        alert("Sorry Time's Up!")
+        $(".qBox").hide();
+        $(".iBox").prepend("<img style='https://media.giphy.com/media/o2dyz0l0BWisM/giphy.gif'/>");
+        //setimout for 3secconds
+        timeLeft = 10
+        timeOutId = setTimeout(function () {
+            //increase current index by one
+            ++currentIndex
+            //display next questions
+            //call generate questions again
+            generateQuestion()
+            timerId = setInterval(countdown, 1000);
+        }, 3000)
+    } else {
+        secondsLeft = $("#time");
+        timeLeft--;
+        $("#time").text(timeLeft);
+        console.log(timeLeft);
+
+    }
+
+
+}
+
+//var for keeping track of what index we are at in the questionArray
 
 // first question appears 
 function startGame() {
-    $("#question").text(q1.question)
-    $("#option1").text(q1.options[0])
-    $("#option2").text(q1.options[1])
-    $("#option3").text(q1.options[2])
-    $("#option4").text(q1.options[3])
+    generateQuestion();
+
+};
+
+// function stopCountdown() {
+//     clearInterval(timerId);
+// }
+// function restart() {
+//     timeLeft = setInterval(countdown.secondsLeft, 1000);
+// }
 
 
-    $(".options").on("click", function () {
-        if (userGuess == q1.options[2]) {
-            alert("Correct");
-        }
-        else {
-            alert("Incorrect");
-        }
+$(".options").on("click", function (event) {
+    event.preventDefault();
+    var usersChoice = $(this).text().trim()
+    console.log(usersChoice);
 
-    })
+    //
+    for (var i = 0; i < questionArray[currentIndex].options.length; i++) {
+    } if (usersChoice == questionArray[currentIndex].answer) {
+        console.log(usersChoice);
+        alert("Correct");
+        clearTimeout(timerId);
+        timeOutId = setTimeout(function () {
+            timeLeft = 10
+            //increase current index by one
+            ++currentIndex
+            //display next questions
+            //call generate questions again
+            generateQuestion()
+            timerId = setInterval(countdown, 1000);
+        }, 3000)
+
+        // $("#correct1").play()
+    } else {
+        console.log(usersChoice);
+        alert("Sorry Nope")
+        clearTimeout(timerId);
+        timeOutId = setTimeout(function () {
+            timeLeft = 10
+            //increase current index by one
+            ++currentIndex
+            //display next questions
+            //call generate questions again
+            generateQuestion()
+            timerId = setInterval(countdown, 1000);
+        }, 3000)
+
+    }
+
+    //no answer was selected correctly
+    //go on to next question
+
+})
+//
+function generateQuestion() {
+    $(".iBox").empty();
+
+    $("#question").text(questionArray[currentIndex].question);
+    $("#option1").text(questionArray[currentIndex].options[0]);
+    $("#option2").text(questionArray[currentIndex].options[1]);
+    $("#option3").text(questionArray[currentIndex].options[2]);
+    $("#option4").text(questionArray[currentIndex].options[3]);
+
+    $(".qBox").show();
 
 }
 

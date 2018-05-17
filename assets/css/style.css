@@ -34,8 +34,12 @@ h2 {
 
 .qBox {
     margin-top: 50px;
-    text-align: center
+    text-align: center;
+    margin-left: 50px;
 }
+/* #question{
+    list-style-image: url('/assets/Images/coffeeCup.jpg');
+} */
 .options:hover {
-    border: 2px solid green;
+    border: 2px solid rgb(206, 59, 59);
 }
