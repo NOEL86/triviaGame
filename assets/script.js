@@ -1,10 +1,10 @@
 
-var timeLeft = 30;
+var timeLeft = 10;
 var movieTrivia = {
-    questions: ['Who plays Batman in the Dark Night Series?', 'What two movies do Julia Roberts and Richard Gere costar in?', 'What toy store does Tom Hanks play chopsticks on the giant piano in?',
-        'Who was the villian in Toy Story 1', 'Why was the old man thrown out of the window in The Emporers New Groove?', 'What movie won the Oscar for Best Picture in 2018?',
-        'What is the name of the Cafe Ruth and Idgie open in Fried Green Tomatoes', 'Tracy Turnblad in Hairspray lives in what city?', 'Why is Delores, Whoopie Goldberg in Sister Act, hiding in a convent?',
-        'Who had it coming in the musical Chicago?']
+    questions: ['What is Chandlers middle name?', 'What does Joey call his Adams Apple?', 'How does Pheobe run?',
+        'What is in Monicas hall closet?', 'Who smoked pot in college?', 'Who is Emma?',
+        'Who will not try the breast milk?', 'Which character starts the series in a wedding dress?', 'Who pees on Monica after a jelly fish sting?',
+        'How does the show end?']
 }
 
 //start game by clicking button that says start
@@ -13,70 +13,72 @@ var movieTrivia = {
 var correct = 0;
 var incorrect = 0;
 var questionArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
-var answers = [];
+
+
 
 
 var q1 = {
-    question: 'Who plays Batman in the Dark Night Series?',
-    options: ['Val Kilmer', 'George Clooney', 'Christian Bale', 'Michael Keaton'
+    question: 'What is Chandlers middle name?',
+    options: ['Gene', 'Muriel', 'Christian', 'Joey'
     ],
+    answer: 'Muriel'
 
 };
 
 
 var q2 = {
-    question: 'What two movies do Julia Roberts and Richard Gere costar in?',
-    options: ['Steel Magnolias and Sleeping With The Enemy', 'Charlie Wilsons War and A Normal Heart',
-        'Pretty Woman and Runnaway Bride', 'Shall We Dance and An Officer and A Gentleman'],
-    answers: [false, false, true, false]
+    question: 'What does Joey call his Adams Apple?',
+    options: ['Joeys Apple', 'Bump', 'Large Apple',
+        'There is no name', 'Manly Neck'],
+    answer: 'Joeys Apple'
 };
 
 var q3 = {
-    question: 'What toy store does Tom Hanks play chopsticks on the giant piano in?',
-    options: ['FAO Shwarz', 'Toys R Us', 'Lark Toys', 'Big Toys'],
-    answers: [true, false, false, false]
+    question: 'How does Pheobe run?',
+    options: ['Fast', 'Slow', 'Stiff', 'Like she is running away from Satan'],
+    answer: 'Like she is running away from Satan'
 };
-q3.options[0] = true;
-//q3.option[1,2,3] = false;
+
+
 var q4 = {
-    question: 'Who was the villian in Toy Story 1',
-    options: ['The Aliens', 'Sid', 'Andy', 'The Prospector'],
-    answers: [false, true, false, false]
+    question: 'What is in Monicas hall closet?',
+    options: ['Nothing', 'Ribbons', 'Things that do not fit in a category', 'Towels'],
+    answer: 'Things that do not fit in a category'
 };
 
 var q5 = {
-    question: 'Why was the old man thrown out of the window in The Emporers New Groove?',
-    options: ['He talks too much', 'He asked for money', 'He disobeyed the law', 'He threw off the Emporers Groove'],
-    answers: [false, false, false, true]
+    question: 'Who smoked pot in college?',
+    options: ['Ross', 'Chandler', 'Joey', 'Monica'],
+    answer: 'Ross'
 };
 
 var q6 = {
-    question: 'What movie Guillermo Del Toro film won the Oscar for Best Picture in 2018?',
-    options: ['The Shape of Water', 'Pans Laborynth', 'Hell Boy', 'Pacific Rim'],
-    answers: [true, false, false, false]
+    question: 'Who is Emma?',
+    options: ['Joeys girlfriend', 'Ross and Rachels baby', 'Chandler and Monicas baby', 'One of Franks triplets'],
+    answer: 'Ross and Rachels baby'
 };
 var q7 = {
-    question: 'What is the name of the Cafe Ruth and Idgie open in Fried Green Tomatoes',
-    options: ['Ruths Cafe', 'Idgie and Ruths Cafe', 'The Big George Cafe', 'The Whistle Stop Cafe'],
-    answers: [false, false, false, true]
+    question: 'Who will not try the breast milk?',
+    options: ['Ross', 'Carol', 'Joey', 'Monica'],
+    answer: 'Ross'
 };
 
 var q8 = {
-    question: 'Tracy Turnblad in Hairspray lives in what city?',
-    options: ['Chicago', 'Baltimore', 'Boston', 'New York'],
-    answers: [false, true, false, false]
+    question: 'Which character starts the series in a wedding dress?',
+    options: ['Monica', 'Phoebe', 'Rachel', 'Julie'],
+    answer: 'Rachel'
 };
 
 var q9 = {
-    question: 'Why is Delores, Whoopie Goldberg in Sister Act, hiding in a convent?',
-    options: ['She is in Witness Protection', 'She committed a crime', 'She wanted a new life', 'She has amnesia'],
-    answers: [true, false, false, false]
+    question: 'Who pees on Monica after a jelly fish sting?',
+    options: ['Ross', 'Chandler', 'Joey', 'She pees on herself'],
+    answer: 'Chandler'
 };
 
 var q10 = {
-    question: 'Who had it coming in the musical Chicago?',
-    options: ['Ezekiel Young from Salt Lake City', 'Al Lipshits', 'Wilbur', 'Billy Flinn'],
-    answers: [true, true, true, false]
+    question: 'How does the show end?',
+    options: ['Monica and Chandler buy a house and move out', 'Rachel moves to Greece', 'Ross dies', 'Joey gets married'],
+    answer: 'Monica and Chandler buy a house and move out'
 };
 
 
@@ -95,7 +97,7 @@ $("#button").on("click", function () {
             clearTimeout(timerId);
             alert("Sorry Time's Up!")
             $(".container").hide();
-            $(".container").prepend("<img src=assets/loseimage.png/>");
+            $(".container").prepend("<img src= 'assets/loseimage.png'/>");
         } else {
             secondsLeft = $("#time");
             timeLeft--;
@@ -122,10 +124,10 @@ function startGame() {
     $("#option2").text(q1.options[1])
     $("#option3").text(q1.options[2])
     $("#option4").text(q1.options[3])
-    q1.options[3] = true;
+
 
     $(".options").on("click", function () {
-        if (options == true) {
+        if (userGuess == q1.options[2]) {
             alert("Correct");
         }
         else {
