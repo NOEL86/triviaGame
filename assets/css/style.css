@@ -11,6 +11,7 @@ h1 {
     font-family: 'Permanent Marker', cursive;
 }
 
+
 h2 {
     text-align: center;
     color: black;
@@ -41,12 +42,21 @@ h2 {
 .iBox {
     visibility: hidden;
 }
-/* #question{
-    list-style-image: url('/assets/Images/coffeeCup.jpg');
-} */
+#question{
+    text-align:center;
+    color: rgb(47, 47, 172);
+}
+
+.options{
+    text-align: left;
+}
 .options:hover {
     border: 2px solid rgb(206, 59, 59);
+
 }
+
+
 #end {
     visibility: hidden;
+    margin-top: 150px;
 }
