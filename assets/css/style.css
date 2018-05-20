@@ -9,6 +9,7 @@ h1 {
     -webkit-text-stroke-color: black;
     -webkit-text-fill-color: whitesmoke;
     font-family: 'Permanent Marker', cursive;
+    margin-top: 25px;
 }
 
 
@@ -39,9 +40,6 @@ h2 {
     margin-left: 50px;
 }
 
-.iBox {
-    visibility: hidden;
-}
 #question{
     text-align:center;
     color: rgb(47, 47, 172);
@@ -54,7 +52,10 @@ h2 {
     border: 2px solid rgb(206, 59, 59);
 
 }
-
+.iBox{
+    margin-left: 25px;
+    margin-top: 25px;
+}
 
 #end {
     visibility: hidden;
@@ -65,4 +66,5 @@ h2 {
 #correct, #wrong{
     text-align: center;
     font-size: 24px;
+    color: white;
 }

@@ -93,7 +93,7 @@ var questionArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 $(document).ready(function () {
 
     $("#timeRemaining").hide();
-
+    $(".iBox").hide();
     $("#button").on("click", function () {
         $("#button").hide();
         $("#timeRemaining").show();
@@ -126,7 +126,7 @@ $(document).ready(function () {
 
         clearTimeout(timerId);
         if (currentIndex < 10) {
-            $(".iBox").empty();
+            $(".iBox").hide();
 
             $("#question").text(questionArray[currentIndex].question);
             $("#option1").text(questionArray[currentIndex].options[0]);
@@ -177,8 +177,8 @@ $(document).ready(function () {
         clearTimeout(timerId);
         $(".qBox").hide();
         $(".iBox").show();
-        $("#correct").append(correct);
-        $("#wrong").append(incorrect);
+        $("#correct").text(correct);
+        $("#wrong").text(incorrect);
         $("#end").css("visibility", "visible");
         $("#timeRemaining").hide();
     }
