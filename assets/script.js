@@ -100,41 +100,32 @@ $(document).ready(function () {
         console.log("Button hidden");
         console.log("show time remaining");
         startGame();
-        timerId = setInterval(countdown, 1000);
     })
 
     function countdown() {
-
         if (timeLeft == 0) {
-            clearTimeout(timerId);
-
-
             $('audio#timeOut')[0].play();
             $(".qBox").hide();
-            //setimout for 3secconds
-            timeLeft = 10
-            timeOutId = setTimeout(function () {
-                //increase current index by one
-                ++currentIndex
-                //display next questions
-                //call generate questions again
-                timerId = setInterval(countdown, 1000);
-            }, 2000)
+
+            incorrect++;
+
+            //increase current index by one
+            ++currentIndex;
+
+            generateQuestion();
         } else {
             secondsLeft = $("#time");
             timeLeft--;
             $("#time").text(timeLeft);
             console.log(timeLeft);
-
         }
-
-
     }
 
     function generateQuestion() {
         console.log(currentIndex);
 
-        if (currentIndex <= 9) {
+        clearTimeout(timerId);
+        if (currentIndex < 10) {
             $(".iBox").empty();
 
             $("#question").text(questionArray[currentIndex].question);
@@ -144,22 +135,19 @@ $(document).ready(function () {
             $("#option4").text(questionArray[currentIndex].options[3]);
             $(".qBox").show();
 
-        } if (currentIndex == 10 && usersChoice == 10) {
+            timeLeft = 10
+            timerId = setInterval(countdown, 1000)
+
+        } else {
             console.log("over");
             endGame();
         }
-
     }
-
-    // for ()
-    //var for keeping track of what index we are at in the questionArray
 
     // first question appears 
     function startGame() {
         generateQuestion();
-        countdown();
     };
-
 
     $(".options").on("click", function (event) {
         event.preventDefault();
@@ -169,57 +157,31 @@ $(document).ready(function () {
         if (usersChoice == questionArray[currentIndex].answer) {
             console.log(usersChoice);
             $("#correct1")[0].play();
-            ++correct
+            ++correct;
             alert("Correct");
-            clearTimeout(timerId);
-            timeOutId = setTimeout(function () {
-                timeLeft = 10
-                //increase current index by one
-                ++currentIndex
-                //display next questions
-                //call generate questions again
-
-                if (currentIndex < 10) {
-                    generateQuestion();
-                }
-
-                timerId = setInterval(countdown, 1000)
-            }, 2000);
-
         } else {
             console.log(usersChoice);
-            ++incorrect
+            ++incorrect;
             $("#wrong1")[0].play();
-            clearTimeout(timerId);
-            timeOutId = setTimeout(function () {
-                timeLeft = 10
-                //increase current index by one
-                ++currentIndex
-                //display next questions
-                //call generate questions again
-                if (currentIndex < 10) {
-                    generateQuestion();
-
-                }
-                timerId = setInterval(countdown, 1000);
-            }, 2000)
-
         }
+
+        //increase current index by one
+        ++currentIndex
+
+        //call generate questions again
+        generateQuestion();
     })
 
     function endGame() {
         console.log("hello 3")
         clearTimeout(timerId);
-        $(".qBox").empty();
-        $("#correct").text(correct);
-        $("#wrong").text(incorrect);
+        $(".qBox").hide();
         $(".iBox").show();
+        $("#correct").append(correct);
+        $("#wrong").append(incorrect);
         $("#end").css("visibility", "visible");
-
         $("#timeRemaining").hide();
     }
-
-
 });
 
 // if (questionArray[currentIndex].question)
