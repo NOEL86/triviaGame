@@ -1,7 +1,10 @@
 body {
     background-image: url('https://img-fotki.yandex.ru/get/6432/25429581.29/0_ba29e_b958821c_orig');
-    background-size: cover;
-
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+    text-align: center;
 }
 
 h1 {
@@ -20,51 +23,55 @@ h2 {
 }
 
 #button {
-    justify-content: center;
+    margin: 50px auto;
     font-size: 2.25rem;
-    margin-left: 150px;
-    margin-top: 50px;
+    
 }
 
 .container {
     background-color: rgb(5, 151, 151);
-    height: 650px;
-    width: 600px;
+    height: 550px;
+    width: 60%;
     margin-top: 100px;
   
 }
 
 .qBox {
-    margin-top: 50px;
+    margin: 50px auto;
     text-align: center;
-    margin-left: 50px;
+     
 }
 
 #question{
-    text-align:center;
+    text-align: center;
     color: rgb(47, 47, 172);
+    /* margin-left: 10px; */
 }
 
 .options{
     text-align: left;
+    margin-left: 10px;
 }
 .options:hover {
     border: 2px solid rgb(206, 59, 59);
 
 }
 .iBox{
-    margin-left: 25px;
-    margin-top: 25px;
+    margin-top: 25px auto;
+    text-align: center;
+    margin-left: 10px;
 }
 
 #end {
     visibility: hidden;
-    margin-top: 150px;
-    margin-left: 40px;
+    margin-top: 150px auto;
+    width: 100%;
+    
+
+    
 }
 
-#correct, #wrong{
-    text-align: center;
+#correct, #wrong {
     font-size: 24px;
     color: white;
 }
