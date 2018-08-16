@@ -15,7 +15,6 @@ h1 {
     margin-top: 25px;
 }
 
-
 h2 {
     text-align: center;
     color: black;
@@ -25,53 +24,57 @@ h2 {
 #button {
     margin: 50px auto;
     font-size: 2.25rem;
-    
 }
 
 .container {
     background-color: rgb(5, 151, 151);
-    height: 550px;
-    width: 60%;
+    height: 450px;
+    width: 80%;
     margin-top: 100px;
-  
+    text-align: center;
 }
 
 .qBox {
-    margin: 50px auto;
+    margin: 0 auto;
     text-align: center;
-     
 }
 
 #question{
     text-align: center;
     color: rgb(47, 47, 172);
-    /* margin-left: 10px; */
 }
 
-.options{
-    text-align: left;
-    margin-left: 10px;
+.options {
+    text-align: center;
 }
+
 .options:hover {
     border: 2px solid rgb(206, 59, 59);
-
-}
-.iBox{
-    margin-top: 25px auto;
     text-align: center;
-    margin-left: 10px;
+}
+
+.iBox{
+    margin-top: 0 auto;
+    text-align: center !important;
+    display: inline-block;
 }
 
 #end {
     visibility: hidden;
-    margin-top: 150px auto;
-    width: 100%;
-    
-
+    margin-top: 0 auto;
+    width: 80%;
     
 }
 
 #correct, #wrong {
     font-size: 24px;
+    color: rgb(206, 59, 59);
+    text-align: center !important;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.correct, .wrong {
+    text-align: center !important;
+    font-family: 'Permanent Marker', cursive;
     color: white;
 }
